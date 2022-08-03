@@ -30,9 +30,9 @@ namespace CKK.UI
             InitializeComponent();
         }
 
-        private void submitButton_Click(object sender, RoutedEventArgs e)
+        private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Priviet { searchText.Text }");
+            MessageBox.Show($"Progress saved{ searchText.Text }");
         }
     }
 }
