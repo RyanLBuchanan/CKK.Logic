@@ -32,7 +32,7 @@ namespace CKK.UI
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Priviet { firstNameText.Text }");
+            MessageBox.Show($"Priviet { searchText.Text }");
         }
     }
 }
