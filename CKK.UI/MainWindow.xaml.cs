@@ -23,171 +23,307 @@ namespace CKK.UI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    //public partial class MainWindow : Window
+    //{
+    //    private IStore Store;
+
+    //    public MainWindow()
+    //    {
+    //        Store = new Store();
+    //        InitializeComponent();
+    //        //productsGrid.ItemSource = Products.GetGridProducts();
+    //    }
+
+    //    private void saveButton_Click(object sender, RoutedEventArgs e)
+    //    {
+    //        MessageBox.Show($"Progress saved{ searchText.Text }");
+    //    }
+    //}
+
+    //public enum ProductDescription
+    //{
+    //    Window_Gadget_1,
+    //    Window_Gadget_2,
+    //    Window_Gadget_3,
+    //    Window_Gadget_4,
+    //    Window_Gadget_5,
+    //}
+
+    //public class GridProduct : INotifyPropertyChanged
+    //{
+    //    private bool gridProductChecked;
+
+    //    public bool GridProductChecked
+    //    {
+    //        get { return gridProductChecked; }
+    //        set
+    //        {
+    //            gridProductChecked = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+    //    private int gridProductId;
+
+    //    public int GridProductId
+    //    {
+    //        get { return gridProductId; }
+    //        set {
+    //            gridProductId = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private string gridProductName;
+
+    //    public string GridProductName
+    //    {
+    //        get { return gridProductName; }
+    //        set {
+    //            gridProductName = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private string gridProductDescription;
+
+    //    public string GridProductDescription
+    //    {
+    //        get { return gridProductDescription; }
+    //        set
+    //        {
+    //            gridProductDescription = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private double gridProductPrice;
+
+    //    public double GridProductPrice
+    //    {
+    //        get { return gridProductPrice; }
+    //        set
+    //        {
+    //            gridProductPrice = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private int gridProductQuantity;
+
+    //    public int GridProductQuantity
+    //    {
+    //        get { return gridProductQuantity; }
+    //        set
+    //        {
+    //            gridProductQuantity = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    public static ObservableCollection<GridProduct> GetGridProducts()
+    //    {
+    //        //int newIDCounter = 0;
+
+    //        var gridProducts = new ObservableCollection<GridProduct>();
+
+    //        gridProducts.Add(new GridProduct()
+    //        {
+    //            GridProductChecked = false,
+    //            GridProductId = 1,
+    //            GridProductName = "Widget 1",
+    //            GridProductDescription = "Windows Gadget 1",
+    //            GridProductPrice = 1.00,
+    //            GridProductQuantity = 1
+    //        });
+
+    //        gridProducts.Add(new GridProduct()
+    //        {
+    //            GridProductChecked = false,
+    //            GridProductId = 2,
+    //            GridProductName = "Widget 2",
+    //            GridProductDescription = "Windows Gadget 2",
+    //            GridProductPrice = 2.00,
+    //            GridProductQuantity = 2
+    //        });
+
+    //        gridProducts.Add(new GridProduct()
+    //        {
+    //            GridProductChecked = false,
+    //            GridProductId = 3,
+    //            GridProductName = "Widget 3",
+    //            GridProductDescription = "Windows Gadget 3",
+    //            GridProductPrice = 3.00,
+    //            GridProductQuantity = 3
+    //        });
+
+    //        gridProducts.Add(new GridProduct()
+    //        {
+    //            GridProductChecked = false,
+    //            GridProductId = 4,
+    //            GridProductName = "Widget 4",
+    //            GridProductDescription = "Windows Gadget 4",
+    //            GridProductPrice = 4.00,
+    //            GridProductQuantity = 4
+    //        });
+
+    //        gridProducts.Add(new GridProduct()
+    //        {
+    //            GridProductChecked = false,
+    //            GridProductId = 5,
+    //            GridProductName = "Widget 5",
+    //            GridProductDescription = "Windows Gadget 5",
+    //            GridProductPrice = 5.00,
+    //            GridProductQuantity = 5
+    //        });
+
+    //        return gridProducts;
+    //    }
+
+    //    //public event DependencyPropertyChangedEventHandler DependencyPropertyChanged;  // DependencyPropertyChanged?
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    private void RaiseProperChanged([CallerMemberName] string caller = "")
+    //    {
+    //        if (PropertyChanged != null)
+    //        {
+    //            PropertyChanged(this, new PropertyChangedEventArgs(caller)); // DependencyPropertyChanged?
+    //        }
+    //    }
+    //}
+
     public partial class MainWindow : Window
     {
-        private IStore Store;
 
         public MainWindow()
         {
-            Store = new Store();
             InitializeComponent();
-            //productsGrid.ItemSource = Products.GetGridProducts();
-        }
-
-        private void saveButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show($"Progress saved{ searchText.Text }");
+            dataGrid.ItemsSource = Employee.GetEmployees();
         }
     }
 
-    public enum ProductDescription
+    public enum Party
     {
-        Window_Gadget_1,
-        Window_Gadget_2,
-        Window_Gadget_3,
-        Window_Gadget_4,
-        Window_Gadget_5,
+        Indepentent,
+        Federalist,
+        DemocratRepublican,
     }
 
-    public class GridProduct : INotifyPropertyChanged
+    public class Employee : INotifyPropertyChanged
     {
-        private bool gridProductChecked;
+        private string name;
 
-        public bool GridProductChecked
+        public string Name
         {
-            get { return gridProductChecked; }
+            get { return name; }
             set
             {
-                gridProductChecked = value;
-                RaiseProperChanged();
-            }
-        }
-        private int gridProductId;
-
-        public int GridProductId
-        {
-            get { return gridProductId; }
-            set {
-                gridProductId = value;
+                name = value;
                 RaiseProperChanged();
             }
         }
 
-        private string gridProductName;
+        private string title;
 
-        public string GridProductName
+        public string Title
         {
-            get { return gridProductName; }
-            set {
-                gridProductName = value;
-                RaiseProperChanged();
-            }
-        }
-
-        private string gridProductDescription;
-
-        public string GridProductDescription
-        {
-            get { return gridProductDescription; }
+            get { return title; }
             set
             {
-                gridProductDescription = value;
+                title = value;
                 RaiseProperChanged();
             }
         }
 
-        private double gridProductPrice;
+        private bool wasReElected;
 
-        public double GridProductPrice
+        public bool WasReElected
         {
-            get { return gridProductPrice; }
+            get { return wasReElected; }
             set
             {
-                gridProductPrice = value;
+                wasReElected = value;
                 RaiseProperChanged();
             }
         }
 
-        private int gridProductQuantity;
+        private Party affiliation;
 
-        public int GridProductQuantity
+        public Party Affiliation
         {
-            get { return gridProductQuantity; }
+            get { return affiliation; }
             set
             {
-                gridProductQuantity = value;
+                affiliation = value;
                 RaiseProperChanged();
             }
         }
 
-        public static ObservableCollection<GridProduct> GetGridProducts()
+        public static ObservableCollection<Employee> GetEmployees()
         {
-            //int newIDCounter = 0;
+            var employees = new ObservableCollection<Employee>();
 
-            var gridProducts = new ObservableCollection<GridProduct>();
-
-            gridProducts.Add(new GridProduct()
+            employees.Add(new Employee()
             {
-                GridProductChecked = false,
-                GridProductId = 1,
-                GridProductName = "Widget 1",
-                GridProductDescription = "Windows Gadget 1",
-                GridProductPrice = 1.00,
-                GridProductQuantity = 1
+                Name = "Ali",
+                Title = "Minister",
+                WasReElected = true,
+                Affiliation = Party.Indepentent
             });
 
-            gridProducts.Add(new GridProduct()
+            employees.Add(new Employee()
             {
-                GridProductChecked = false,
-                GridProductId = 2,
-                GridProductName = "Widget 2",
-                GridProductDescription = "Windows Gadget 2",
-                GridProductPrice = 2.00,
-                GridProductQuantity = 2
+                Name = "Ahmed",
+                Title = "CM",
+                WasReElected = false,
+                Affiliation = Party.Federalist
             });
 
-            gridProducts.Add(new GridProduct()
+            employees.Add(new Employee()
             {
-                GridProductChecked = false,
-                GridProductId = 3,
-                GridProductName = "Widget 3",
-                GridProductDescription = "Windows Gadget 3",
-                GridProductPrice = 3.00,
-                GridProductQuantity = 3
+                Name = "Amjad",
+                Title = "PM",
+                WasReElected = true,
+                Affiliation = Party.DemocratRepublican
             });
 
-            gridProducts.Add(new GridProduct()
+            employees.Add(new Employee()
             {
-                GridProductChecked = false,
-                GridProductId = 4,
-                GridProductName = "Widget 4",
-                GridProductDescription = "Windows Gadget 4",
-                GridProductPrice = 4.00,
-                GridProductQuantity = 4
+                Name = "Waqas",
+                Title = "Minister",
+                WasReElected = false,
+                Affiliation = Party.Indepentent
             });
 
-            gridProducts.Add(new GridProduct()
+            employees.Add(new Employee()
             {
-                GridProductChecked = false,
-                GridProductId = 5,
-                GridProductName = "Widget 5",
-                GridProductDescription = "Windows Gadget 5",
-                GridProductPrice = 5.00,
-                GridProductQuantity = 5
+                Name = "Bilal",
+                Title = "Minister",
+                WasReElected = true,
+                Affiliation = Party.Federalist
             });
 
-            return gridProducts;
+            employees.Add(new Employee()
+            {
+                Name = "Waqar",
+                Title = "Minister",
+                WasReElected = false,
+                Affiliation = Party.DemocratRepublican
+            });
+
+            return employees;
         }
 
-        //public event DependencyPropertyChangedEventHandler DependencyPropertyChanged;  // DependencyPropertyChanged?
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaiseProperChanged([CallerMemberName] string caller = "")
         {
+
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller)); // DependencyPropertyChanged?
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
         }
+
     }
+
 }
