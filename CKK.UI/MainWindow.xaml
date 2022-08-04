@@ -3,9 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:CKK.UI"
         mc:Ignorable="d" FontSize="12" FontFamily="Segoe UI Light"
         Title="Inventory Management" Height="450" Width="800">
+
+    <!--<Window.Resources>
+        <ObjectDataProvider x:Key = "myEnum" MethodName = "GetValues" 
+         ObjectType = "{x:Type core:Enum}">
+
+            <ObjectDataProvider.MethodParameters>
+                <x:TypeExtension Type = "local:Party" />
+            </ObjectDataProvider.MethodParameters>
+
+        </ObjectDataProvider>
+    </Window.Resources>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -22,6 +34,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -46,8 +65,23 @@
 
         
         <Button x:Name="saveButton" Content="Save" Grid.Column="3"
-                Grid.Row="6" Grid.ColumnSpan="3" Margin="10" 
+                Grid.Row="13" Grid.ColumnSpan="3" Margin="10" 
                 Width="50" Height="25" Click="saveButton_Click" 
-                Background="#FF6FA8DC" VerticalAlignment="Bottom"/>
+                Background="#FF6FA8DC" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        
+        <DataGrid Name="productsGrid" Margin="10" Grid.Column="3" 
+                  Grid.Row="6" AlternatingRowBackground="LightGray"
+                  AlternationCount="2" AutoGenerateColumns="False"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="__" Binding="{Binding __}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Product name" Binding="{Binding Product name}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
