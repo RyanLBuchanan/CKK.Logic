@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:CKK.UI"
         mc:Ignorable="d" FontSize="12" FontFamily="Segoe UI Light"
         Title="Inventory Management" Height="450" Width="800">
@@ -13,11 +12,12 @@
          ObjectType = "{x:Type core:Enum}">
 
             <ObjectDataProvider.MethodParameters>
-                <x:TypeExtension Type = "local:Party" />
+                <x:TypeExtension Type = "local:ProductDescription" />
             </ObjectDataProvider.MethodParameters>
 
         </ObjectDataProvider>
     </Window.Resources>-->
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -77,7 +77,7 @@
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="__" Binding="{Binding __}" />
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                <DataGridTextColumn Header="Product name" Binding="{Binding Product name}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
                 <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
