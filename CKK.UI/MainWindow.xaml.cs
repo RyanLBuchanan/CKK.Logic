@@ -20,25 +20,22 @@ using System.Windows.Shapes;
 
 namespace CKK.UI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    //public partial class MainWindow : Window
-    //{
-    //    private IStore Store;
+    public partial class MainWindow : Window
+    {
+        private IStore Store;
 
-    //    public MainWindow()
-    //    {
-    //        Store = new Store();
-    //        InitializeComponent();
-    //        //productsGrid.ItemSource = Products.GetGridProducts();
-    //    }
+        public MainWindow()
+        {
+            Store = new Store();
+            InitializeComponent();
+            //productsGrid.ItemSource = Products.GetGridProducts();
+        }
 
-    //    private void saveButton_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        MessageBox.Show($"Progress saved{ searchText.Text }");
-    //    }
-    //}
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Progress saved{searchText.Text}");
+        }
+    }
 
     //public enum ProductDescription
     //{
@@ -49,281 +46,283 @@ namespace CKK.UI
     //    Window_Gadget_5,
     //}
 
-    //public class GridProduct : INotifyPropertyChanged
-    //{
-    //    private bool gridProductChecked;
-
-    //    public bool GridProductChecked
-    //    {
-    //        get { return gridProductChecked; }
-    //        set
-    //        {
-    //            gridProductChecked = value;
-    //            RaiseProperChanged();
-    //        }
-    //    }
-    //    private int gridProductId;
-
-    //    public int GridProductId
-    //    {
-    //        get { return gridProductId; }
-    //        set {
-    //            gridProductId = value;
-    //            RaiseProperChanged();
-    //        }
-    //    }
-
-    //    private string gridProductName;
-
-    //    public string GridProductName
-    //    {
-    //        get { return gridProductName; }
-    //        set {
-    //            gridProductName = value;
-    //            RaiseProperChanged();
-    //        }
-    //    }
-
-    //    private string gridProductDescription;
-
-    //    public string GridProductDescription
-    //    {
-    //        get { return gridProductDescription; }
-    //        set
-    //        {
-    //            gridProductDescription = value;
-    //            RaiseProperChanged();
-    //        }
-    //    }
-
-    //    private double gridProductPrice;
-
-    //    public double GridProductPrice
-    //    {
-    //        get { return gridProductPrice; }
-    //        set
-    //        {
-    //            gridProductPrice = value;
-    //            RaiseProperChanged();
-    //        }
-    //    }
-
-    //    private int gridProductQuantity;
-
-    //    public int GridProductQuantity
-    //    {
-    //        get { return gridProductQuantity; }
-    //        set
-    //        {
-    //            gridProductQuantity = value;
-    //            RaiseProperChanged();
-    //        }
-    //    }
-
-    //    public static ObservableCollection<GridProduct> GetGridProducts()
-    //    {
-    //        //int newIDCounter = 0;
-
-    //        var gridProducts = new ObservableCollection<GridProduct>();
-
-    //        gridProducts.Add(new GridProduct()
-    //        {
-    //            GridProductChecked = false,
-    //            GridProductId = 1,
-    //            GridProductName = "Widget 1",
-    //            GridProductDescription = "Windows Gadget 1",
-    //            GridProductPrice = 1.00,
-    //            GridProductQuantity = 1
-    //        });
-
-    //        gridProducts.Add(new GridProduct()
-    //        {
-    //            GridProductChecked = false,
-    //            GridProductId = 2,
-    //            GridProductName = "Widget 2",
-    //            GridProductDescription = "Windows Gadget 2",
-    //            GridProductPrice = 2.00,
-    //            GridProductQuantity = 2
-    //        });
-
-    //        gridProducts.Add(new GridProduct()
-    //        {
-    //            GridProductChecked = false,
-    //            GridProductId = 3,
-    //            GridProductName = "Widget 3",
-    //            GridProductDescription = "Windows Gadget 3",
-    //            GridProductPrice = 3.00,
-    //            GridProductQuantity = 3
-    //        });
-
-    //        gridProducts.Add(new GridProduct()
-    //        {
-    //            GridProductChecked = false,
-    //            GridProductId = 4,
-    //            GridProductName = "Widget 4",
-    //            GridProductDescription = "Windows Gadget 4",
-    //            GridProductPrice = 4.00,
-    //            GridProductQuantity = 4
-    //        });
-
-    //        gridProducts.Add(new GridProduct()
-    //        {
-    //            GridProductChecked = false,
-    //            GridProductId = 5,
-    //            GridProductName = "Widget 5",
-    //            GridProductDescription = "Windows Gadget 5",
-    //            GridProductPrice = 5.00,
-    //            GridProductQuantity = 5
-    //        });
-
-    //        return gridProducts;
-    //    }
-
-    //    //public event DependencyPropertyChangedEventHandler DependencyPropertyChanged;  // DependencyPropertyChanged?
-    //    public event PropertyChangedEventHandler PropertyChanged;
-
-    //    private void RaiseProperChanged([CallerMemberName] string caller = "")
-    //    {
-    //        if (PropertyChanged != null)
-    //        {
-    //            PropertyChanged(this, new PropertyChangedEventArgs(caller)); // DependencyPropertyChanged?
-    //        }
-    //    }
-    //}
-
-    public partial class MainWindow : Window
+    public class GridProduct : INotifyPropertyChanged
     {
+        private bool gridProductChecked;
 
-        public MainWindow()
+        public bool GridProductChecked
         {
-            InitializeComponent();
-            dataGrid.ItemsSource = Employee.GetEmployees();
-        }
-    }
-
-    public enum Party
-    {
-        Indepentent,
-        Federalist,
-        DemocratRepublican,
-    }
-
-    public class Employee : INotifyPropertyChanged
-    {
-        private string name;
-
-        public string Name
-        {
-            get { return name; }
+            get { return gridProductChecked; }
             set
             {
-                name = value;
+                gridProductChecked = value;
+                RaiseProperChanged();
+            }
+        }
+        private int gridProductId;
+
+        public int GridProductId
+        {
+            get { return gridProductId; }
+            set
+            {
+                gridProductId = value;
                 RaiseProperChanged();
             }
         }
 
-        private string title;
+        private string gridProductName;
 
-        public string Title
+        public string GridProductName
         {
-            get { return title; }
+            get { return gridProductName; }
             set
             {
-                title = value;
+                gridProductName = value;
                 RaiseProperChanged();
             }
         }
 
-        private bool wasReElected;
+        private string gridProductDescription;
 
-        public bool WasReElected
+        public string GridProductDescription
         {
-            get { return wasReElected; }
+            get { return gridProductDescription; }
             set
             {
-                wasReElected = value;
+                gridProductDescription = value;
                 RaiseProperChanged();
             }
         }
 
-        private Party affiliation;
+        private double gridProductPrice;
 
-        public Party Affiliation
+        public double GridProductPrice
         {
-            get { return affiliation; }
+            get { return gridProductPrice; }
             set
             {
-                affiliation = value;
+                gridProductPrice = value;
                 RaiseProperChanged();
             }
         }
 
-        public static ObservableCollection<Employee> GetEmployees()
+        private int gridProductQuantity;
+
+        public int GridProductQuantity
         {
-            var employees = new ObservableCollection<Employee>();
-
-            employees.Add(new Employee()
+            get { return gridProductQuantity; }
+            set
             {
-                Name = "Ali",
-                Title = "Minister",
-                WasReElected = true,
-                Affiliation = Party.Indepentent
-            });
-
-            employees.Add(new Employee()
-            {
-                Name = "Ahmed",
-                Title = "CM",
-                WasReElected = false,
-                Affiliation = Party.Federalist
-            });
-
-            employees.Add(new Employee()
-            {
-                Name = "Amjad",
-                Title = "PM",
-                WasReElected = true,
-                Affiliation = Party.DemocratRepublican
-            });
-
-            employees.Add(new Employee()
-            {
-                Name = "Waqas",
-                Title = "Minister",
-                WasReElected = false,
-                Affiliation = Party.Indepentent
-            });
-
-            employees.Add(new Employee()
-            {
-                Name = "Bilal",
-                Title = "Minister",
-                WasReElected = true,
-                Affiliation = Party.Federalist
-            });
-
-            employees.Add(new Employee()
-            {
-                Name = "Waqar",
-                Title = "Minister",
-                WasReElected = false,
-                Affiliation = Party.DemocratRepublican
-            });
-
-            return employees;
+                gridProductQuantity = value;
+                RaiseProperChanged();
+            }
         }
 
+        public static ObservableCollection<GridProduct> GetGridProducts()
+        {
+            //int newIDCounter = 0;
+
+            var gridProducts = new ObservableCollection<GridProduct>();
+
+            gridProducts.Add(new GridProduct()
+            {
+                GridProductChecked = false,
+                GridProductId = 1,
+                GridProductName = "Widget 1",
+                GridProductDescription = "Windows Gadget 1",
+                GridProductPrice = 1.00,
+                GridProductQuantity = 1
+            });
+
+            gridProducts.Add(new GridProduct()
+            {
+                GridProductChecked = false,
+                GridProductId = 2,
+                GridProductName = "Widget 2",
+                GridProductDescription = "Windows Gadget 2",
+                GridProductPrice = 2.00,
+                GridProductQuantity = 2
+            });
+
+            gridProducts.Add(new GridProduct()
+            {
+                GridProductChecked = false,
+                GridProductId = 3,
+                GridProductName = "Widget 3",
+                GridProductDescription = "Windows Gadget 3",
+                GridProductPrice = 3.00,
+                GridProductQuantity = 3
+            });
+
+            gridProducts.Add(new GridProduct()
+            {
+                GridProductChecked = false,
+                GridProductId = 4,
+                GridProductName = "Widget 4",
+                GridProductDescription = "Windows Gadget 4",
+                GridProductPrice = 4.00,
+                GridProductQuantity = 4
+            });
+
+            gridProducts.Add(new GridProduct()
+            {
+                GridProductChecked = false,
+                GridProductId = 5,
+                GridProductName = "Widget 5",
+                GridProductDescription = "Windows Gadget 5",
+                GridProductPrice = 5.00,
+                GridProductQuantity = 5
+            });
+
+            return gridProducts;
+        }
+
+        //public event DependencyPropertyChangedEventHandler DependencyPropertyChanged;  // DependencyPropertyChanged?
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaiseProperChanged([CallerMemberName] string caller = "")
         {
-
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+                PropertyChanged(this, new PropertyChangedEventArgs(caller)); // DependencyPropertyChanged?
             }
         }
-
     }
+
+    //public partial class MainWindow : Window
+    //{
+
+    //    public MainWindow()
+    //    {
+    //        InitializeComponent();
+    //        dataGrid.ItemsSource = Employee.GetEmployees();
+    //    }
+    //}
+
+    //public enum Party
+    //{
+    //    Indepentent,
+    //    Federalist,
+    //    DemocratRepublican,
+    //}
+
+    //public class Employee : INotifyPropertyChanged
+    //{
+    //    private string name;
+
+    //    public string Name
+    //    {
+    //        get { return name; }
+    //        set
+    //        {
+    //            name = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private string title;
+
+    //    public string Title
+    //    {
+    //        get { return title; }
+    //        set
+    //        {
+    //            title = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private bool wasReElected;
+
+    //    public bool WasReElected
+    //    {
+    //        get { return wasReElected; }
+    //        set
+    //        {
+    //            wasReElected = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    private Party affiliation;
+
+    //    public Party Affiliation
+    //    {
+    //        get { return affiliation; }
+    //        set
+    //        {
+    //            affiliation = value;
+    //            RaiseProperChanged();
+    //        }
+    //    }
+
+    //    public static ObservableCollection<Employee> GetEmployees()
+    //    {
+    //        var employees = new ObservableCollection<Employee>();
+
+    //        employees.Add(new Employee()
+    //        {
+    //            Name = "Ali",
+    //            Title = "Minister",
+    //            WasReElected = true,
+    //            Affiliation = Party.Indepentent
+    //        });
+
+    //        employees.Add(new Employee()
+    //        {
+    //            Name = "Ahmed",
+    //            Title = "CM",
+    //            WasReElected = false,
+    //            Affiliation = Party.Federalist
+    //        });
+
+    //        employees.Add(new Employee()
+    //        {
+    //            Name = "Amjad",
+    //            Title = "PM",
+    //            WasReElected = true,
+    //            Affiliation = Party.DemocratRepublican
+    //        });
+
+    //        employees.Add(new Employee()
+    //        {
+    //            Name = "Waqas",
+    //            Title = "Minister",
+    //            WasReElected = false,
+    //            Affiliation = Party.Indepentent
+    //        });
+
+    //        employees.Add(new Employee()
+    //        {
+    //            Name = "Bilal",
+    //            Title = "Minister",
+    //            WasReElected = true,
+    //            Affiliation = Party.Federalist
+    //        });
+
+    //        employees.Add(new Employee()
+    //        {
+    //            Name = "Waqar",
+    //            Title = "Minister",
+    //            WasReElected = false,
+    //            Affiliation = Party.DemocratRepublican
+    //        });
+
+    //        return employees;
+    //    }
+
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    private void RaiseProperChanged([CallerMemberName] string caller = "")
+    //    {
+
+    //        if (PropertyChanged != null)
+    //        {
+    //            PropertyChanged(this, new PropertyChangedEventArgs(caller));
+    //        }
+    //    }
+
+    //}
 
 }
