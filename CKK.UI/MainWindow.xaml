@@ -56,26 +56,15 @@
                  Foreground="White" Width="550" Text="Search" 
                  TextAlignment="Left" 
                  Margin="10, 10, 10, 10" Background="#FF9FC5E8" />
-
-        
+       
         <Button x:Name="saveButton" Content="Save" Grid.Column="3"
                 Grid.Row="13" Grid.ColumnSpan="3" Margin="10" 
-                Width="50" Height="25" Click="saveButton_Click" 
-                Background="#FF6FA8DC" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                Width="50" Height="25" 
+                Background="#FF6FA8DC" VerticalAlignment="Bottom" 
+                HorizontalAlignment="Center"/>
 
-        <DataGrid Name="productsGrid" Margin="10" Grid.Column="3" 
-                  Grid.Row="6" AlternatingRowBackground="LightGray"
-                  AlternationCount="2" AutoGenerateColumns="False"
-                  d:ItemsSource="{d:SampleData ItemCount=5}"
-                  Grid.ColumnSpan="4">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="__" Binding="{Binding __}" />
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListBox x:Name="lbInventoryList" Grid.Column="4" Grid.Row="6" 
+                 d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        
     </Grid>
 </Window>

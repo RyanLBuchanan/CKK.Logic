@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using CKK.Logic.Interfaces;
 using CKK.Logic.Exceptions;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace CKK.Logic.Models
